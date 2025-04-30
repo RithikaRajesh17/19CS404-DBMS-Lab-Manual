@@ -104,124 +104,237 @@ CREATE TABLE Table_Name (
 ```
 
 **Question 1**
---
--- Paste Question 1 here
+
+
+Create a table named Invoices with the following constraints:
+InvoiceID as INTEGER should be the primary key.
+InvoiceDate as DATE.
+Amount as REAL should be greater than 0.
+DueDate as DATE should be greater than the InvoiceDate.
+OrderID as INTEGER should be a foreign key referencing Orders(OrderID).
 
 ```sql
--- Paste your SQL code below for Question 1
+
+create table Invoices(
+InvoiceID INTEGER  primary key,
+InvoiceDate  DATE,
+Amount  REAl check (amount >=0),
+DueDate  DATE check (DueDate > InvoiceDate),
+OrderID  INTEGER,
+foreign key (OrderId) references Orders(OrderID));
+
 ```
 
 **Output:**
 
-![Output1](output.png)
+![image](https://github.com/user-attachments/assets/cb2f3677-e44f-4300-ad4a-ea9f0e6e1cbd)
+
+
 
 **Question 2**
----
--- Paste Question 2 here
+
+Insert a student with RollNo 201, Name David Lee, Gender M, Subject Physics, and MARKS 92 into the Student_details table.
 
 ```sql
--- Paste your SQL code below for Question 2
+
+INSERT into student_details (RollNo,Name,Gender,subject,MARKS)
+values('201','David Lee','M','Physics','92');
+
 ```
 
 **Output:**
 
-![Output2](output.png)
+![image](https://github.com/user-attachments/assets/f1bf7a00-a342-4755-91ec-edd95e16e55e)
+
+
 
 **Question 3**
----
--- Paste Question 3 here
+
+Create a table named Department with the following constraints:
+DepartmentID as INTEGER should be the primary key.
+DepartmentName as TEXT should be unique and not NULL.
+Location as TEXT.
+
 
 ```sql
--- Paste your SQL code below for Question 3
+
+create table Department(
+DepartmentID INTEGER primary key,
+DepartmentName TEXT unique not NULL,
+Location TEXT
+);
+
 ```
 
 **Output:**
 
-![Output3](output.png)
+
+![image](https://github.com/user-attachments/assets/23b08643-e9da-4924-ae2a-194b44d98e69)
+
+
+
 
 **Question 4**
----
--- Paste Question 4 here
+
+Create a table named Products with the following constraints:
+
+ProductID should be the primary key.
+ProductName should be NOT NULL.
+Price is of real datatype and should be greater than 0.
+Stock is of integer datatype and should be greater than or equal to 0.
 
 ```sql
--- Paste your SQL code below for Question 4
+
+create table Products(
+ProductID integer primary key,
+ProductName varchar(20) NOT NULL,
+Price  real check (Price >0),
+Stock integer check(Stock >=0)
+);
+
 ```
 
 **Output:**
 
-![Output4](output.png)
+![image](https://github.com/user-attachments/assets/0b73fef0-013e-48fb-96e4-a2015a44feae)
+
+
 
 **Question 5**
----
--- Paste Question 5 here
 
+Write a SQL query to add birth_date attribute as timestamp (datatype) in the table customer 
+
+Sample table: customer
+
+ customer_id |   cust_name    |    city    | grade | salesman_id 
+-------------+----------------+------------+-------+-------------
+        3002 | Nick Rimando   | New York   |   100 |        5001
+        3007 | Brad Davis     | New York   |   200 |        5001
+        3005 | Graham Zusi    | California |   200 |        5002
+
+        
 ```sql
--- Paste your SQL code below for Question 5
+
+ALTER TABLE customer
+ADD COLUMN birth_date timestamp;
+
 ```
 
 **Output:**
 
-![Output5](output.png)
+![image](https://github.com/user-attachments/assets/aa195b2a-185f-489b-975e-230ae4da6345)
+
 
 **Question 6**
----
--- Paste Question 6 here
+
+Create a table named Locations with the following columns:
+
+LocationID as INTEGER
+LocationName as TEXT
+Address as TEXT
 
 ```sql
--- Paste your SQL code below for Question 6
+
+create table Locations(
+LocationID INTEGER,
+LocationName TEXT,
+Address TEXT);
+
 ```
 
 **Output:**
 
-![Output6](output.png)
+![image](https://github.com/user-attachments/assets/3900ebe5-8f6a-421d-8edc-b49e6ffb36c4)
+
 
 **Question 7**
----
--- Paste Question 7 here
+
+Write an SQL command can to add a column named email of type TEXT to the customers table
 
 ```sql
--- Paste your SQL code below for Question 7
+
+ALTER  table Customers
+add column email TEXT; 
+
 ```
 
 **Output:**
 
-![Output7](output.png)
+![image](https://github.com/user-attachments/assets/d4d74c66-8c0b-4a48-8cfc-c49b1ce32c1b)
+
 
 **Question 8**
----
--- Paste Question 8 here
+
+Insert the following employees into the Employee table:
+
+EmployeeID  Name        Position    Department  Salary
+----------  ----------  ----------  ----------  ----------
+2           John Smith  Developer   IT          75000
+3           Anna Bell   Designer    Marketing   68000
+
 
 ```sql
--- Paste your SQL code below for Question 8
+
+insert into Employee(EmployeeID,Name,Position,Department,Salary)
+values('2','John Smith','Developer','IT','75000');
+insert into Employee(EmployeeID,Name,Position,Department,Salary)
+values('3','Anna Bell','Designer','Marketing','68000')
+
 ```
 
 **Output:**
 
-![Output8](output.png)
+![image](https://github.com/user-attachments/assets/771f87c7-7929-41fc-af9d-623115816454)
+
 
 **Question 9**
----
--- Paste Question 9 here
+
+
+Create a new table named item with the following specifications and constraints:
+item_id as TEXT and as primary key.
+item_desc as TEXT.
+rate as INTEGER.
+icom_id as TEXT with a length of 4.
+icom_id is a foreign key referencing com_id in the company table.
+The foreign key should cascade updates and deletes.
+item_desc and rate should not accept NULL.
 
 ```sql
--- Paste your SQL code below for Question 9
+
+create table item(
+item_id TEXT primary key,
+item_desc TEXT NOT NULL,
+rate INTEGER NOT NULL,
+icom_id TEXT CHECK(length(icom_id)>=4),
+foreign key (icom_id) references company(com_id)
+ON UPDATE CASCADE
+ON DELETE CASCADE
+);
+
 ```
 
 **Output:**
 
-![Output9](output.png)
+![image](https://github.com/user-attachments/assets/49a70359-ed84-48c6-a93c-48a44048b820)
+
 
 **Question 10**
----
--- Paste Question 10 here
+
+Insert all products from Discontinued_products into Products.
+
+Table attributes are ProductID, ProductName, Price, Stock
 
 ```sql
--- Paste your SQL code below for Question 10
+
+insert into Products(ProductID,ProductName,Price,Stock)
+select ProductID,ProductName,Price,Stock from Discontinued_products; 
+
 ```
 
 **Output:**
 
-![Output10](output.png)
+![image](https://github.com/user-attachments/assets/4096d462-c837-4c8a-bf58-d154056c8279)
+
 
 
 ## RESULT
