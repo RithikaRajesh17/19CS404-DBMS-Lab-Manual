@@ -332,3 +332,6 @@ where first_name like 'A%';
 
 ## RESULT
 Thus, the SQL queries to implement DML commands have been executed successfully.
+
+![image](https://github.com/user-attachments/assets/a77481c2-d9a7-4cfe-8616-1b3b8832c383)
+
