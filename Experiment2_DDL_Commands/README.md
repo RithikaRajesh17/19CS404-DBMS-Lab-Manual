@@ -339,3 +339,5 @@ select ProductID,ProductName,Price,Stock from Discontinued_products;
 
 ## RESULT
 Thus, the SQL queries to implement different types of constraints and DDL commands have been executed successfully.
+
+![image](https://github.com/user-attachments/assets/013de306-cd6a-48ab-818d-ac583b6ce81f)
