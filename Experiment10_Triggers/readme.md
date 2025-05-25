@@ -16,14 +16,14 @@ A trigger is a stored PL/SQL block that is automatically executed or fired when 
 - Statement-level Trigger: Executes once for the triggering statement.
 
 Basic Syntax:
-
+```
 CREATE OR REPLACE TRIGGER trigger_name
 BEFORE|AFTER INSERT|UPDATE|DELETE ON table_name
 [FOR EACH ROW]
 BEGIN
    -- trigger logic
 END;
-
+```
 
 ## 1. Write a trigger to log every insertion into a table.
 Steps:
@@ -34,7 +34,7 @@ Expected Output:
 - A new entry is added to the employee_log table each time a new record is inserted into the employees table.
 
 ## Program
-
+```
 CREATE TABLE employees (
     emp_id     NUMBER PRIMARY KEY,
     emp_name   VARCHAR2(100),
@@ -61,7 +61,7 @@ INSERT INTO employees (emp_id, emp_name, emp_dept, emp_salary)
 VALUES (101, 'Alice', 'HR', 50000);
 
 SELECT * FROM employee_log;
-
+```
 
 ## Output
 ![image](https://github.com/user-attachments/assets/9eb5657c-b738-42f7-b89d-d8d3ec82c7d9)
@@ -75,7 +75,7 @@ Steps:
 
 Expected Output:
 - If an attempt is made to delete a record from sensitive_data, an error message is raised, e.g., ERROR: Deletion not allowed on this table.
-
+```
 CREATE TABLE sensitive_data (
     data_id    NUMBER PRIMARY KEY,
     data_value VARCHAR2(100)
@@ -93,7 +93,7 @@ INSERT INTO sensitive_data (data_id, data_value) VALUES (1, 'Confidential Info')
 
 
 DELETE FROM sensitive_data WHERE data_id = 1;
-
+```
 ![image](https://github.com/user-attachments/assets/786fb976-dd58-4d75-bca7-7456571bc73e)
 
 ---
@@ -105,7 +105,7 @@ Steps:
 Expected Output:
 - The last_modified column in the products table is updated automatically to the current date and time when any record is updated.
 
-
+```
 CREATE TABLE products (
     product_id     NUMBER PRIMARY KEY,
     product_name   VARCHAR2(100),
@@ -136,7 +136,7 @@ WHERE product_id = 101;
 SELECT product_id, product_name, last_modified
 FROM products
 WHERE product_id = 101;
-
+```
 ![image](https://github.com/user-attachments/assets/8a8aaf8f-6043-40ba-b578-33b339e376ad)
 
 ---
