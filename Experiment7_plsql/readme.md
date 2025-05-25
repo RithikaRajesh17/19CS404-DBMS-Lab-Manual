@@ -9,7 +9,7 @@ To write and execute simple PL/SQL programs using variables, loops, and conditio
 PL/SQL, which stands for Procedural Language extensions to the Structured Query Language (SQL). It is a combination of SQL along with the procedural features of programming languages.
 
 *Syntax:*
-sql
+```sql
 DECLARE 
    <declarations section> 
 BEGIN 
@@ -18,7 +18,7 @@ EXCEPTION
    <exception handling> 
 END;
 
-
+```
 ### Basic Components of PL/SQL Block:
 - DECLARE: Section to declare variables and constants.
 - BEGIN: The execution section that contains PL/SQL statements.
@@ -38,7 +38,7 @@ END;
 Greater number is: 80
 
 ##Program:
-
+```
 DECLARE
     num1 NUMBER := 80;  -- First number
     num2 NUMBER := 50;  -- Second number
@@ -49,7 +49,7 @@ BEGIN
         DBMS_OUTPUT.PUT_LINE('Greater number is: ' || num2);
     END IF;
 END;
-
+```
 ## Output:
 ![image](https://github.com/user-attachments/assets/3b2510ac-4caa-4173-9290-256f890748ed)
 
@@ -67,7 +67,7 @@ END;
 Sum of first 10 natural numbers is: 55
 
 ### Program:
-
+```
 SET SERVEROUTPUT ON;
 
 DECLARE
@@ -79,11 +79,10 @@ BEGIN
         total_sum := total_sum + i;
         i := i + 1;
     END LOOP;
-
     DBMS_OUTPUT.PUT_LINE('Sum of first ' || n || ' natural numbers is: ' || total_sum);
 END;
 
-
+```
 ### Output:
 ![image](https://github.com/user-attachments/assets/c2e8bc2a-f58a-44db-bf43-44f2a98b454d)
 
@@ -102,7 +101,7 @@ n = 7
 Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8
 
 ### Program:
-
+```
 SET SERVEROUTPUT ON;
 
 DECLARE
@@ -115,7 +114,6 @@ BEGIN
     DBMS_OUTPUT.PUT_LINE('Fibonacci sequence:');
     DBMS_OUTPUT.PUT_LINE(a);
     DBMS_OUTPUT.PUT_LINE(b);
-
     WHILE i <= n LOOP
         c := a + b;
         DBMS_OUTPUT.PUT_LINE(c);
@@ -124,7 +122,7 @@ BEGIN
         i := i + 1;
     END LOOP;
 END;
-
+```
 
 ### Output:
 ![image](https://github.com/user-attachments/assets/03e29fbc-69cb-410a-86e8-b175cae2ca82)
@@ -143,7 +141,7 @@ n = 1535
 Reversed number is 5351
 
 ### Program:
-
+```
 SET SERVEROUTPUT ON;
 
 DECLARE
@@ -157,11 +155,10 @@ BEGIN
         reversed := reversed * 10 + digit;-- Build the reversed number
         n := TRUNC(n / 10);               -- Remove the last digit
     END LOOP;
-
     DBMS_OUTPUT.PUT_LINE('n = ' || original);
     DBMS_OUTPUT.PUT_LINE('Reversed number is ' || reversed);
 END;
-
+```
 
 ### Output:
 ![image](https://github.com/user-attachments/assets/11eb0932-327b-4186-bba7-488dae66d076)
@@ -180,7 +177,7 @@ a = 10, b = 9, c = 15
 Largest of three number is 15
 
 ### Program:
-
+```
 SET SERVEROUTPUT ON;
 
 DECLARE
@@ -196,11 +193,10 @@ BEGIN
     ELSE
         largest := c;
     END IF;
-
     DBMS_OUTPUT.PUT_LINE('a = ' || a || ', b = ' || b || ', c = ' || c);
     DBMS_OUTPUT.PUT_LINE('Largest of three number is ' || largest);
 END;
-
+```
 
 ### Output:
 ![image](https://github.com/user-attachments/assets/aca89966-e681-43d2-a413-d66007343425)
