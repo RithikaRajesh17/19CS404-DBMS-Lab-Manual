@@ -25,7 +25,7 @@ Types of Explicit Cursors:
 5. Cursor with FOR UPDATE: Used for row-level locking and updating the rows while looping.
 
 *Syntax:*
-sql
+```sql
 DECLARE 
    <declarations section> 
 BEGIN 
@@ -33,6 +33,7 @@ BEGIN
 EXCEPTION 
    <exception handling> 
 END;
+```
 
 
 ### Basic Components of PL/SQL Block:
@@ -97,7 +98,7 @@ The program should display the employee details or an error message.
 - Use a parameterized cursor to accept a salary range as input and fetch employees within that range.
 - Implement exception handling to catch and display relevant error messages.
 *Program:*
-
+```
 DECLARE
    CURSOR sal_cursor(min_sal NUMBER, max_sal NUMBER) IS
       SELECT emp_name, salary FROM employees WHERE salary BETWEEN min_sal AND max_sal;
@@ -118,7 +119,7 @@ EXCEPTION
    WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
 END;
-
+```
   
 *Output:*  
 The program should display the employee details within the specified salary range or an error message if no data is found.
@@ -143,7 +144,7 @@ The program should display the employee details within the specified salary rang
 - Implement exception handling to catch the relevant exceptions.
 
 *Program:*
-
+```
 DECLARE
    found BOOLEAN := FALSE;
 BEGIN
@@ -160,7 +161,7 @@ EXCEPTION
    WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE('Unexpected error: ' || SQLERRM);
 END;
-
+```
 *Output:*  
 The program should display employee names with their department numbers or the appropriate error message if no data is found.
 
@@ -184,7 +185,7 @@ The program should display employee names with their department numbers or the a
 - Implement exception handling to catch the relevant exceptions and display appropriate messages.
 
 *Program:*
-
+```
 DECLARE
    CURSOR emp_cur IS SELECT * FROM employees;
    emp_rec employees%ROWTYPE;
@@ -208,7 +209,7 @@ EXCEPTION
    WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE('Error: ' || SQLERRM);
 END;
-
+```
 *Output:*  
 The program should display employee records or the appropriate error message if no data is found.
 
@@ -231,7 +232,7 @@ The program should display employee records or the appropriate error message if 
 - Use a cursor with the FOR UPDATE clause to lock the rows of employees in a specific department and update their salary.
 - Implement exception handling to handle NO_DATA_FOUND or other errors that may occur.
 
-*Program:*
+```*Program:*
 
 DECLARE
    CURSOR emp_cur IS
@@ -253,6 +254,7 @@ EXCEPTION
    WHEN OTHERS THEN
       DBMS_OUTPUT.PUT_LINE('Error during update: ' || SQLERRM);
 END;
+```
 
 *Output:*  
 The program should update employee salaries and display a message, or it should display an error message if no data is found.
